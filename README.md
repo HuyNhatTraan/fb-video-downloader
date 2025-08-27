@@ -12,8 +12,6 @@ Extension Chrome để tải video Facebook dễ dàng với giao diện đẹp 
 - ✅ Tự động chuyển đổi link thành mobile version
 - ✅ Giả User-Agent để truy cập mobile Facebook
 - ✅ Tìm kiếm video thông qua Network monitoring
-- ✅ Hỗ trợ nhiều định dạng video
-- ✅ Responsive design cho popup
 
 ## 📁 Cấu trúc file
 
