@@ -46,7 +46,7 @@ facebook-video-downloader/
    - Click vào icon puzzle ở thanh công cụ
    - Pin "Facebook Video Downloader"
 
-## 💡 Cách sử dụng (CẬP NHẬT)
+## 💡 Cách sử dụng
 
 1. **Tìm video hoàn toàn tự động:**
    - Click vào icon extension
@@ -59,13 +59,14 @@ facebook-video-downloader/
    - Xem preview video trong popup
    - Click "Tải về" để download
    - Video sẽ được tải về máy
+   - Hoặc di chuột vào video ấn 3 chấm và tải về
 
 3. **Quản lý video:**
    - Xem tất cả video đã lưu
    - Xóa từng video không cần
    - Xóa tất cả video cùng lúc
 
-## ⚙️ Cách hoạt động (CẬP NHẬT)
+## ⚙️ Cách hoạt động
 
 ### 1. Hoạt động tự động trong background
 - Extension hoạt động hoàn toàn tự động, không cần user mở DevTools
@@ -81,7 +82,7 @@ Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML
 
 ### 3. URL Conversion
 - Chuyển đổi `facebook.com` → `m.facebook.com`
-- Facebook tự động redirect về desktop version
+- Facebook tự động redirect về bản dành cho Mobile
 - Mobile version dễ extract video hơn
 
 ### 4. Multi-layer Video Detection
