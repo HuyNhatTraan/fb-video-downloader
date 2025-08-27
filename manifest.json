@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Video Downloader",
+  "version": "1.0",
+  "description": "Tải video Facebook dễ dàng",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest",
+    "tabs",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://*.facebook.com/*",
+    "https://*.fbcdn.net/*",
+    "https://m.facebook.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Facebook Video Downloader",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.facebook.com/*", "https://m.facebook.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://*.facebook.com/*", "https://m.facebook.com/*"]
+    }
+  ]
+}

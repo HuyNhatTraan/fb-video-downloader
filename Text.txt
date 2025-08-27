@@ -1,0 +1,18 @@
+Ý tưởng làm extension tải video facebook 
+1. Tạo 1 extension Manifest v3 cho Chorme 
+2. Tạo popup cho người dùng nhập links của video muốn tải về
+3. ✅ (Extension sẽ phải làm ngầm mọi thứ không cho người dùng phải ở sẵn ở DevTools) Extension sẽ giả User-Agent
+Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36
+4. ✅ Chuyển links nhập của người dùng thành m.facebook.com sau đó facebook sẽ tự động redirect links đó thành facebook.com/..... 
+5. ✅ Extension sẽ dò trong DevTools -> Network -> Media -> Lấy file đầu tiên được load đó sẽ là video cần tìm có Type là Media
+và Request URL của links video đó thường là https://*.xx.fbcdn.net/...... với Response Headers content-type: video/mp4
+6. ✅ Lưu links này vào local storage.
+7. ✅ Sau đó lấy file này show lên cho người dùng ở Popup extension với video reviews và nút tải, nút xoá
+8. ✅ Ngoài ra còn có nút xoá toàn bộ video đang được lưu lại ở local storage.
+
+🎉 ĐÃ HOÀN THÀNH:
+- Extension hoạt động hoàn toàn ẩn với Offscreen Document
+- Không tạo tab mới hiển thị cho user
+- Tự động extract video trong background
+- UI/UX friendly với loading states
+

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Facebook Video Downloader</title>
+    <style>
+        body {
+            width: 400px;
+            min-height: 500px;
+            padding: 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        input[type="url"]:focus {
+            outline: 2px solid #4CAF50;
+            background: white;
+        }
+
+        .button {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .button.danger {
+            background: linear-gradient(45deg, #f44336, #d32f2f);
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+        }
+
+        .button.danger:hover {
+            box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+        }
+
+        .button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .status {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .status.success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.5);
+        }
+
+        .status.error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid rgba(244, 67, 54, 0.5);
+        }
+
+        .status.loading {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid rgba(33, 150, 243, 0.5);
+        }
+
+        .video-list {
+            margin-top: 20px;
+        }
+
+        .video-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-preview {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            max-height: 200px;
+        }
+
+        .video-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .video-actions .button {
+            flex: 1;
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
+        .clear-all {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">📹 FB Video Downloader</div>
+        
+        <div class="input-section">
+            <label for="videoUrl">📋 Nhập link video Facebook:</label>
+            <input type="url" id="videoUrl" placeholder="https://facebook.com/..." />
+            <br><br>
+            <button id="downloadBtn" class="button">
+                <span id="downloadText">🔍 Tìm Video</span>
+                <span id="loadingSpinner" class="loading-spinner hidden"></span>
+            </button>
+            <br><br>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.8); text-align: center; display: flex; flex-direction: column;">
+                <span>🚀 Extension đang chạy thì vui lòng không ẩn/tắt extension đi</span>
+                <span>😭 Nếu không tải hãy ấn di chuột vào video và ấn ... để tải video</span>
+            </div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.8); text-align: center;">
+                🥀 Pro tips: Nếu không tìm thấy video, vui lòng thử lại hoặc kiểm tra link có đúng định dạng không
+            </div>
+        </div>
+
+        <div id="status" class="status hidden"></div>
+
+        <div class="video-list">
+            <div id="videoContainer"></div>
+            <button id="clearAllBtn" class="button danger clear-all hidden">
+                🗑️ Xóa Tất Cả Video
+            </button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
