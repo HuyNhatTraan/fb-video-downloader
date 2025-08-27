@@ -37,8 +37,10 @@ facebook-video-downloader/
 2. **Load extension vào Chrome:**
    - Mở Chrome và vào `chrome://extensions/`
    - Bật "Developer mode" ở góc phải trên
-   - Click "Load unpacked"
-   - Chọn thư mục chứa extension
+   - Nếu bạn giải nén file: 
+     - Click "Load unpacked"
+     - Chọn thư mục chứa extension
+   - Nếu không giải nén thì kéo file .zip vào là được hen 
 
 3. **Pin extension:**
    - Click vào icon puzzle ở thanh công cụ
